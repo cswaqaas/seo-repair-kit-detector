@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Repair Kit Detector</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    
+    .status-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .status-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    
+    .status-icon.detected {
+      background: #10b981;
+      color: white;
+    }
+    
+    .status-icon.not-detected {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .status-icon.checking {
+      background: #f59e0b;
+      color: white;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+    
+    .status-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+    }
+    
+    .status-message {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      line-height: 1.5;
+    }
+    
+    .details {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    
+    .detail-label {
+      font-weight: 500;
+    }
+    
+    .detail-value {
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .refresh-btn {
+      margin-top: 16px;
+      width: 100%;
+      padding: 10px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .refresh-btn:hover {
+      background: #5568d3;
+    }
+    
+    .refresh-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SEO Repair Kit Detector</h1>
+    <div class="status-container">
+      <div class="status-icon checking" id="statusIcon">⟳</div>
+      <div class="status-text" id="statusText">Checking...</div>
+      <div class="status-message" id="statusMessage">Scanning the current page...</div>
+    </div>
+    
+    <div class="details" id="details" style="display: none;">
+      <div class="detail-item">
+        <span class="detail-label">Plugin Status:</span>
+        <span class="detail-value" id="pluginStatus">-</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Detection Method:</span>
+        <span class="detail-value" id="detectionMethod">-</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Page URL:</span>
+        <span class="detail-value" id="pageUrl" style="font-size: 11px; word-break: break-all;">-</span>
+      </div>
+    </div>
+    
+    <button class="refresh-btn" id="refreshBtn">Refresh Detection</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

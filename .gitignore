@@ -1,0 +1,19 @@
+# Chrome Extension
+*.crx
+*.pem
+.DS_Store
+Thumbs.db
+
+# Icons (if you want to ignore generated icons)
+# icons/*.png
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
